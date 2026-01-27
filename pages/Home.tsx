@@ -9,45 +9,46 @@ const Home: React.FC = () => {
 
   return (
     <div className="flex flex-col gap-24 pb-24">
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-16 md:pt-48 md:pb-40 overflow-hidden min-h-[90vh] flex items-center bg-transparent">
-        {/* Hero Background Image - Absolute Base Layer */}
-        <div className="absolute inset-0 z-[-1]">
-          {/* Fix: Property 'fetchpriority' was changed to 'fetchPriority' to comply with React's attribute naming conventions. */}
+      {/* Hero Section - Pure Image Visibility */}
+      <section className="relative w-full pt-20">
+        {/* The Hero Background Image - 100% Visible, No Overlays */}
+        <div className="w-full h-[60vh] md:h-[80vh] overflow-hidden">
           <img 
             src="https://res.cloudinary.com/dpzvvdgwe/image/upload/v1769509874/881433e75e1199b92efdc3f5f7e48120_rpabck.jpg" 
-            alt="Hero Background" 
+            alt="Antigrix AI Hero Background" 
             className="w-full h-full object-cover opacity-100 block"
             loading="eager"
             fetchPriority="high"
           />
         </div>
 
-        {/* Content Layer */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold text-cyan-400 mb-10 border border-cyan-500/40 bg-slate-950/60 backdrop-blur-md">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
-            </span>
-            NEXT-GEN AI SECURITY
-          </div>
-          
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-black mb-8 leading-[1.15] tracking-tight text-gradient-gold drop-shadow-[0_10px_40px_rgba(0,0,0,1)]">
-            Your Digital Armor in the Age of AI
-          </h1>
-          
-          <p className="text-xl md:text-2xl text-white max-w-3xl mx-auto mb-12 leading-relaxed font-extrabold drop-shadow-[0_4px_25px_rgba(0,0,0,1)]">
-            Protecting digital identities from deepfakes, fake ads, AI-generated manipulation, and identity misuse — before damage happens.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <Button variant="primary" onClick={() => navigate('/contact')} className="w-full sm:w-auto text-lg px-12 py-4">
-              Get Protected
-            </Button>
-            <Button variant="outline" onClick={() => navigate('/solution')} className="w-full sm:w-auto text-lg px-12 py-4 border-cyan-500/80 text-white hover:text-cyan-400 backdrop-blur-md bg-slate-950/80">
-              Explore Technology
-            </Button>
+        {/* Hero Marketing Content - Moved BELOW the image to ensure zero overlay */}
+        <div className="bg-slate-950 py-16 md:py-24">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold text-cyan-400 mb-8 border border-cyan-500/20 bg-cyan-500/5">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+              </span>
+              NEXT-GEN AI SECURITY
+            </div>
+            
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-black mb-8 leading-[1.15] tracking-tight text-gradient-gold">
+              Your Digital Armor in the Age of AI
+            </h1>
+            
+            <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto mb-12 leading-relaxed font-medium">
+              Protecting digital identities from deepfakes, fake ads, AI-generated manipulation, and identity misuse — before damage happens.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+              <Button variant="primary" onClick={() => navigate('/contact')} className="w-full sm:w-auto text-lg px-12 py-4">
+                Get Protected
+              </Button>
+              <Button variant="outline" onClick={() => navigate('/solution')} className="w-full sm:w-auto text-lg px-12 py-4 border-cyan-500/40 text-cyan-400">
+                Explore Technology
+              </Button>
+            </div>
           </div>
         </div>
       </section>
