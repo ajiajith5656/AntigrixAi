@@ -27,28 +27,31 @@ const Home: React.FC = () => {
 
         {/* Hero Marketing Content - Positioned BELOW for 100% visibility */}
         <div className="bg-slate-950 py-16 md:py-24 border-b border-slate-900/50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-[10px] md:text-xs font-bold text-cyan-400 mb-8 border border-cyan-500/20 bg-cyan-500/5">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
-              </span>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
+            
+            {/* 1. Tag at the VERY top */}
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[10px] md:text-xs font-bold text-cyan-400 mb-8 border border-cyan-500/20 bg-cyan-500/5">
+              <span className="h-2 w-2 rounded-full bg-cyan-500 animate-pulse"></span>
               NEXT-GEN AI SECURITY
             </div>
             
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-black mb-8 leading-[1.1] tracking-tight text-gradient-gold">
-              Your Digital Armor <br className="hidden md:block" /> in the Age of AI
+            {/* 2. Title: Reduced size, forced to SINGLE LINE on all displays */}
+            <h1 className="w-full whitespace-nowrap overflow-hidden text-ellipsis font-display font-black mb-8 tracking-tight text-gradient-gold px-2 
+              text-[5.5vw] sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
+              Your Digital Armor in the Age of AI
             </h1>
             
-            <p className="text-lg md:text-xl lg:text-2xl text-slate-300 max-w-3xl mx-auto mb-12 leading-relaxed font-medium">
+            {/* 3. Subtext */}
+            <p className="text-base md:text-lg lg:text-xl text-slate-300 max-w-4xl mx-auto mb-12 leading-relaxed font-medium">
               Protecting digital identities from deepfakes, fake ads, AI-generated manipulation, and identity misuse — before damage happens.
             </p>
             
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6">
-              <Button variant="primary" onClick={() => navigate('/contact')} className="w-full sm:w-auto text-lg px-12 py-4">
+            {/* 4. Buttons */}
+            <div className="flex flex-row items-center justify-center gap-4 md:gap-6 w-full sm:w-auto">
+              <Button variant="primary" onClick={() => navigate('/contact')} className="text-sm md:text-base px-6 md:px-10 py-3 md:py-4">
                 Get Protected
               </Button>
-              <Button variant="outline" onClick={() => navigate('/solution')} className="w-full sm:w-auto text-lg px-12 py-4 border-cyan-500/40 text-cyan-400">
+              <Button variant="outline" onClick={() => navigate('/solution')} className="text-sm md:text-base px-6 md:px-10 py-3 md:py-4 border-cyan-500/40 text-cyan-400">
                 Explore Technology
               </Button>
             </div>
