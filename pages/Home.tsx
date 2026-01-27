@@ -9,23 +9,28 @@ const Home: React.FC = () => {
 
   return (
     <div className="flex flex-col gap-24 pb-24">
-      {/* Hero Section - Pure Image Visibility */}
-      <section className="relative w-full pt-20">
-        {/* The Hero Background Image - 100% Visible, No Overlays */}
-        <div className="w-full h-[60vh] md:h-[80vh] overflow-hidden">
+      {/* Hero Section - Optimized for Multi-Device Fit */}
+      <section className="relative w-full pt-20 flex flex-col">
+        {/* 
+          Hero Background Image Container 
+          - Uses w-full and h-auto to maintain natural aspect ratio
+          - max-h-[85vh] ensures it doesn't overwhelm the viewport on desktop
+          - object-contain ensures the entire image is visible on all screens
+        */}
+        <div className="w-full bg-slate-950 flex justify-center items-center overflow-hidden border-b border-slate-900">
           <img 
             src="https://res.cloudinary.com/dpzvvdgwe/image/upload/v1769509874/881433e75e1199b92efdc3f5f7e48120_rpabck.jpg" 
             alt="Antigrix AI Hero Background" 
-            className="w-full h-full object-cover opacity-100 block"
+            className="w-full h-auto max-h-[85vh] object-contain block select-none pointer-events-none"
             loading="eager"
             fetchPriority="high"
           />
         </div>
 
-        {/* Hero Marketing Content - Moved BELOW the image to ensure zero overlay */}
-        <div className="bg-slate-950 py-16 md:py-24">
+        {/* Hero Marketing Content - Positioned Below Image for 100% Clarity */}
+        <div className="bg-slate-950 py-12 md:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold text-cyan-400 mb-8 border border-cyan-500/20 bg-cyan-500/5">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-[10px] md:text-xs font-bold text-cyan-400 mb-6 md:mb-8 border border-cyan-500/20 bg-cyan-500/5">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
@@ -33,19 +38,19 @@ const Home: React.FC = () => {
               NEXT-GEN AI SECURITY
             </div>
             
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-black mb-8 leading-[1.15] tracking-tight text-gradient-gold">
-              Your Digital Armor in the Age of AI
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-display font-black mb-6 md:mb-8 leading-[1.2] tracking-tight text-gradient-gold">
+              Your Digital Armor <br className="hidden md:block" /> in the Age of AI
             </h1>
             
-            <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto mb-12 leading-relaxed font-medium">
+            <p className="text-lg md:text-xl lg:text-2xl text-slate-300 max-w-3xl mx-auto mb-10 md:mb-12 leading-relaxed font-medium">
               Protecting digital identities from deepfakes, fake ads, AI-generated manipulation, and identity misuse — before damage happens.
             </p>
             
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <Button variant="primary" onClick={() => navigate('/contact')} className="w-full sm:w-auto text-lg px-12 py-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6">
+              <Button variant="primary" onClick={() => navigate('/contact')} className="w-full sm:w-auto text-base md:text-lg px-8 md:px-12 py-3 md:py-4">
                 Get Protected
               </Button>
-              <Button variant="outline" onClick={() => navigate('/solution')} className="w-full sm:w-auto text-lg px-12 py-4 border-cyan-500/40 text-cyan-400">
+              <Button variant="outline" onClick={() => navigate('/solution')} className="w-full sm:w-auto text-base md:text-lg px-8 md:px-12 py-3 md:py-4 border-cyan-500/40 text-cyan-400">
                 Explore Technology
               </Button>
             </div>
@@ -54,10 +59,10 @@ const Home: React.FC = () => {
       </section>
 
       {/* Intro Section */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div>
-            <h2 className="text-3xl font-bold mb-6">Prevention-First Defense</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Prevention-First Defense</h2>
             <p className="text-slate-400 text-lg leading-relaxed mb-6">
               Artificial Intelligence has transformed how content is created and shared. Unfortunately, the same technology is being misused to manipulate images, create deepfakes, and AI-generated explicit content. 
             </p>
@@ -65,26 +70,26 @@ const Home: React.FC = () => {
               Antigrix AI exists to stop this misuse at the source by securing digital identity using advanced AI encryption and real-time verification.
             </p>
           </div>
-          <GlassCard className="border-cyan-500/20 glow-cyan">
-             <div className="space-y-6">
-                <div className="flex items-center gap-4">
-                  <div className="p-3 bg-cyan-500/10 rounded-xl">{ICONS.Encryption}</div>
+          <GlassCard className="border-cyan-500/20 glow-cyan w-full">
+             <div className="space-y-6 md:space-y-8">
+                <div className="flex items-center gap-4 md:gap-6">
+                  <div className="p-3 md:p-4 bg-cyan-500/10 rounded-xl shrink-0">{ICONS.Encryption}</div>
                   <div>
-                    <div className="font-bold">Encrypted Origins</div>
+                    <div className="font-bold text-lg">Encrypted Origins</div>
                     <div className="text-slate-400 text-sm">Security starts at the point of capture.</div>
                   </div>
                 </div>
-                <div className="flex items-center gap-4">
-                  <div className="p-3 bg-cyan-500/10 rounded-xl">{ICONS.Identity}</div>
+                <div className="flex items-center gap-4 md:gap-6">
+                  <div className="p-3 md:p-4 bg-cyan-500/10 rounded-xl shrink-0">{ICONS.Identity}</div>
                   <div>
-                    <div className="font-bold">Identity Integrity</div>
+                    <div className="font-bold text-lg">Identity Integrity</div>
                     <div className="text-slate-400 text-sm">Validating human presence in the digital wild.</div>
                   </div>
                 </div>
-                <div className="flex items-center gap-4">
-                  <div className="p-3 bg-rose-500/10 rounded-xl">{ICONS.Threat}</div>
+                <div className="flex items-center gap-4 md:gap-6">
+                  <div className="p-3 md:p-4 bg-rose-500/10 rounded-xl shrink-0">{ICONS.Threat}</div>
                   <div>
-                    <div className="font-bold">Deepfake Neutralization</div>
+                    <div className="font-bold text-lg">Deepfake Neutralization</div>
                     <div className="text-slate-400 text-sm">Stopping AI manipulation before it spreads.</div>
                   </div>
                 </div>
@@ -100,7 +105,7 @@ const Home: React.FC = () => {
           subtitle="Modern problems require post-modern solutions. We've identified the core risks of the generative era."
           accent="red"
         />
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           <GlassCard className="border-rose-500/20">
             <div className="mb-6">{ICONS.Warning}</div>
             <h3 className="text-xl font-bold mb-4">AI-Generated Fake Nudes</h3>
@@ -111,7 +116,7 @@ const Home: React.FC = () => {
             <h3 className="text-xl font-bold mb-4">Deepfakes & Fake Ads</h3>
             <p className="text-slate-400">Celebrities and creators used without consent for scams. Our technology tags every frame as 'Official' and 'Unaltered'.</p>
           </GlassCard>
-          <GlassCard className="border-rose-500/20">
+          <GlassCard className="border-rose-500/20 sm:col-span-2 lg:col-span-1">
             <div className="mb-6">{ICONS.Warning}</div>
             <h3 className="text-xl font-bold mb-4">Political & Authority Misuse</h3>
             <p className="text-slate-400">Manipulated images used for misinformation. We protect institutional trust by securing sovereign digital assets.</p>
@@ -120,34 +125,34 @@ const Home: React.FC = () => {
       </section>
 
       {/* Core Solution CTA */}
-      <section className="bg-cyan-500/5 border-y border-cyan-500/10 py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-16 items-center">
+      <section className="bg-slate-900/30 border-y border-slate-900 py-16 md:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
           <EncryptionVisual />
           <div>
-            <div className="text-cyan-400 font-bold tracking-widest text-sm mb-4 uppercase">PROPRIETARY TECHNOLOGY</div>
-            <h2 className="text-4xl font-black mb-8 leading-tight">Introducing Mini AI Encryption™</h2>
-            <p className="text-slate-300 text-xl mb-8 leading-relaxed">
+            <div className="text-cyan-400 font-bold tracking-widest text-xs md:text-sm mb-4 uppercase">PROPRIETARY TECHNOLOGY</div>
+            <h2 className="text-3xl md:text-4xl font-black mb-6 md:mb-8 leading-tight">Introducing Mini AI Encryption™</h2>
+            <p className="text-slate-300 text-lg md:text-xl mb-8 leading-relaxed">
               An invisible, non-removable AI-based encryption layer that attaches to every photo and video, preventing unauthorized manipulation or usage.
             </p>
-            <div className="grid grid-cols-2 gap-6 mb-8">
-              <div className="flex items-start gap-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-8 md:mb-10">
+              <div className="flex items-center gap-3">
                 {ICONS.Check}
-                <span className="text-sm font-medium">Invisible to humans</span>
+                <span className="text-sm font-semibold">Invisible to humans</span>
               </div>
-              <div className="flex items-start gap-2">
+              <div className="flex items-center gap-3">
                 {ICONS.Check}
-                <span className="text-sm font-medium">Survives Cropping</span>
+                <span className="text-sm font-semibold">Survives Cropping</span>
               </div>
-              <div className="flex items-start gap-2">
+              <div className="flex items-center gap-3">
                 {ICONS.Check}
-                <span className="text-sm font-medium">AI-Readable only</span>
+                <span className="text-sm font-semibold">AI-Readable only</span>
               </div>
-              <div className="flex items-start gap-2">
+              <div className="flex items-center gap-3">
                 {ICONS.Check}
-                <span className="text-sm font-medium">Instant Detection</span>
+                <span className="text-sm font-semibold">Instant Detection</span>
               </div>
             </div>
-            <Button onClick={() => navigate('/solution')}>Learn How It Works</Button>
+            <Button onClick={() => navigate('/solution')} className="w-full sm:w-auto">Learn How It Works</Button>
           </div>
         </div>
       </section>
