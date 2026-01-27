@@ -4,33 +4,31 @@ import { useNavigate } from 'react-router-dom';
 import { GlassCard, Button, SectionHeading, EncryptionVisual } from '../components/UI';
 import { ICONS } from '../constants';
 
+const HERO_IMAGE = "https://res.cloudinary.com/dpzvvdgwe/image/upload/v1769517307/Blush_Social_Media_Live_Event_Facebook_Ad_q5ir0w.png";
+
 const Home: React.FC = () => {
   const navigate = useNavigate();
 
   return (
     <div className="flex flex-col gap-24 pb-24">
-      {/* Hero Section - Optimized for Multi-Device Fit */}
+      {/* Hero Section - Single Responsive Image (400px Height) */}
       <section className="relative w-full pt-20 flex flex-col">
-        {/* 
-          Hero Background Image Container 
-          - Uses w-full and h-auto to maintain natural aspect ratio
-          - max-h-[85vh] ensures it doesn't overwhelm the viewport on desktop
-          - object-contain ensures the entire image is visible on all screens
-        */}
-        <div className="w-full bg-slate-950 flex justify-center items-center overflow-hidden border-b border-slate-900">
+        {/* Image Container: Fixed 400px height across all devices */}
+        <div className="w-full h-[400px] relative overflow-hidden bg-slate-950 border-b border-slate-900 shadow-xl">
           <img 
-            src="https://res.cloudinary.com/dpzvvdgwe/image/upload/v1769509874/881433e75e1199b92efdc3f5f7e48120_rpabck.jpg" 
-            alt="Antigrix AI Hero Background" 
-            className="w-full h-auto max-h-[85vh] object-contain block select-none pointer-events-none"
+            src={HERO_IMAGE} 
+            alt="Antigrix Security Visual" 
+            className="w-full h-full object-cover block select-none pointer-events-none"
             loading="eager"
-            fetchPriority="high"
           />
+          {/* Subtle Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/30 via-transparent to-transparent"></div>
         </div>
 
-        {/* Hero Marketing Content - Positioned Below Image for 100% Clarity */}
-        <div className="bg-slate-950 py-12 md:py-20">
+        {/* Hero Marketing Content - Positioned BELOW for 100% visibility */}
+        <div className="bg-slate-950 py-16 md:py-24 border-b border-slate-900/50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-[10px] md:text-xs font-bold text-cyan-400 mb-6 md:mb-8 border border-cyan-500/20 bg-cyan-500/5">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-[10px] md:text-xs font-bold text-cyan-400 mb-8 border border-cyan-500/20 bg-cyan-500/5">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
@@ -38,19 +36,19 @@ const Home: React.FC = () => {
               NEXT-GEN AI SECURITY
             </div>
             
-            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-display font-black mb-6 md:mb-8 leading-[1.2] tracking-tight text-gradient-gold">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-black mb-8 leading-[1.1] tracking-tight text-gradient-gold">
               Your Digital Armor <br className="hidden md:block" /> in the Age of AI
             </h1>
             
-            <p className="text-lg md:text-xl lg:text-2xl text-slate-300 max-w-3xl mx-auto mb-10 md:mb-12 leading-relaxed font-medium">
+            <p className="text-lg md:text-xl lg:text-2xl text-slate-300 max-w-3xl mx-auto mb-12 leading-relaxed font-medium">
               Protecting digital identities from deepfakes, fake ads, AI-generated manipulation, and identity misuse — before damage happens.
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6">
-              <Button variant="primary" onClick={() => navigate('/contact')} className="w-full sm:w-auto text-base md:text-lg px-8 md:px-12 py-3 md:py-4">
+              <Button variant="primary" onClick={() => navigate('/contact')} className="w-full sm:w-auto text-lg px-12 py-4">
                 Get Protected
               </Button>
-              <Button variant="outline" onClick={() => navigate('/solution')} className="w-full sm:w-auto text-base md:text-lg px-8 md:px-12 py-3 md:py-4 border-cyan-500/40 text-cyan-400">
+              <Button variant="outline" onClick={() => navigate('/solution')} className="w-full sm:w-auto text-lg px-12 py-4 border-cyan-500/40 text-cyan-400">
                 Explore Technology
               </Button>
             </div>
