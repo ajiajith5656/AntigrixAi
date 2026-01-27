@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { GlassCard, Button, SectionHeading, EncryptionVisual } from '../components/UI';
 import { ICONS } from '../constants';
 
-const HERO_IMAGE = "https://res.cloudinary.com/dpzvvdgwe/image/upload/v1769517307/Blush_Social_Media_Live_Event_Facebook_Ad_q5ir0w.png";
+const HERO_IMAGE = "https://res.cloudinary.com/dpzvvdgwe/image/upload/v1769536696/Blush_Social_Media_Live_Event_Facebook_Ad_2_pew965.png";
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
